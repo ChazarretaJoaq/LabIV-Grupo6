@@ -40,7 +40,34 @@ public class DocenteDao {
 		return filas;
 		}
 		
-		
+	public ArrayList<Docente> ListarDocentes(){
+		ArrayList<Docente>listaDocentes = new ArrayList<Docente>();
+		Connection cn= null;
+		try {
+			cn = DriverManager.getConnection(host+dbName,user,pass);
+			String query = "SELECT * FROM docentes";
+			Statement st = cn.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			
+			while (rs.next()) {
+				Docente x = new Docente();
+				x.setLegajo(rs.getInt("legajo"));
+				x.setNombre(rs.getString("nombre"));
+				x.setApellido(rs.getString("apellido"));
+				x.setFechanacimiento(rs.getString("fechanacimiento"));
+				x.setDireccion(rs.getString("direccion"));
+				x.setLocalidad(rs.getString("localidad"));
+				x.setNacionalidad(rs.getString("nacionalidad"));
+				x.setEmail(rs.getString("email"));
+				x.setTelefono(rs.getInt("telefono"));			
+				listaDocentes.add(x);
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return listaDocentes;
+		}
 	}
 	
 	
