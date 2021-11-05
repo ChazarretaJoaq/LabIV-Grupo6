@@ -1,6 +1,6 @@
 package Dominio;
 
-public class Docente {
+public class Alumno {
 	private int legajo;
 	private int dni;	
 	private String nombre;
@@ -13,13 +13,14 @@ public class Docente {
 	private int telefono;
 	private static int cont=9999;
 	
-	public Docente() {
+	public Alumno() {
 		
 	}
 
-	public Docente( int dni, String nombre, String apellido, String fechanacimiento, String direccion,
+	public Alumno(int dni, String nombre, String apellido, String fechanacimiento, String direccion,
 			String localidad, String nacionalidad, String email, int telefono) {
-		super();		
+		super();
+		
 		this.legajo = devuelveProximoLegajo();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -31,12 +32,10 @@ public class Docente {
 		this.email = email;
 		this.telefono = telefono;
 	}
-	
 	public static int devuelveProximoLegajo() {
 		return cont++;
 
 		}
-
 
 	public int getLegajo() {
 		return legajo;
@@ -117,9 +116,6 @@ public class Docente {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
-	
-	
-	
 	
 	
 	
