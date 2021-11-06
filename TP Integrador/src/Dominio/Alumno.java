@@ -2,23 +2,22 @@ package Dominio;
 
 public class Alumno {
 	private int legajo;
-	private int dni;	
+	private String dni;	
 	private String nombre;
 	private String apellido;
 	private String fechanacimiento;
 	private String direccion;
-	private String localidad;
 	private String nacionalidad;
+	private String provincia;
 	private String email;
-	private int telefono;
+	private String telefono;
 	private static int cont=9999;
 	
 	public Alumno() {
 		
 	}
 
-	public Alumno(int dni, String nombre, String apellido, String fechanacimiento, String direccion,
-			String localidad, String nacionalidad, String email, int telefono) {
+	public Alumno(String dni, String nombre, String apellido, String fechanacimiento, String direccion, String nacionalidad,String provincia, String email, String telefono) {
 		super();
 		
 		this.legajo = devuelveProximoLegajo();
@@ -27,8 +26,8 @@ public class Alumno {
 		this.apellido = apellido;
 		this.fechanacimiento = fechanacimiento;
 		this.direccion = direccion;
-		this.localidad = localidad;
 		this.nacionalidad = nacionalidad;
+		this.provincia =provincia;
 		this.email = email;
 		this.telefono = telefono;
 	}
@@ -45,11 +44,11 @@ public class Alumno {
 		this.legajo = legajo;
 	}
 
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
 
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
@@ -85,14 +84,7 @@ public class Alumno {
 		this.direccion = direccion;
 	}
 
-	public String getLocalidad() {
-		return localidad;
-	}
-
-	public void setLocalidad(String localidad) {
-		this.localidad = localidad;
-	}
-
+	
 	public String getNacionalidad() {
 		return nacionalidad;
 	}
@@ -100,6 +92,15 @@ public class Alumno {
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
+	
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia =provincia;
+	}
+
 
 	public String getEmail() {
 		return email;
@@ -109,11 +110,11 @@ public class Alumno {
 		this.email = email;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	
