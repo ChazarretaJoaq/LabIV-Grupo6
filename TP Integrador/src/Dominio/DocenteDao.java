@@ -20,6 +20,7 @@ public class DocenteDao {
 	}
 	
 	public int agregarDocente(Docente docente){
+		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
@@ -41,6 +42,12 @@ public class DocenteDao {
 		}
 		
 	public ArrayList<Docente> ListarDocentes(){
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ArrayList<Docente>listaDocentes = new ArrayList<Docente>();
 		Connection cn= null;
 		try {

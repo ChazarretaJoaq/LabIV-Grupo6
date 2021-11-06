@@ -1,6 +1,7 @@
 package Servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -69,8 +70,13 @@ public class ServletDocente extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		if(request.getParameter("btnListarDocentes")!=null) {
+			DocenteDao dao = new DocenteDao();
+			ArrayList<Docente> lista= dao.ListarDocentes();
+			request.setAttribute("listita", lista);
+			RequestDispatcher rd = request.getRequestDispatcher("/ListarDocentes.jsp");
+			rd.forward(request, response);
 	}
 
+}
 }
