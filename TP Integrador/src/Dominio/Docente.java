@@ -2,7 +2,7 @@ package Dominio;
 
 public class Docente {
 	private int legajo;
-	private int dni;	
+	private String dni;	
 	private String nombre;
 	private String apellido;
 	private String fechanacimiento;
@@ -10,15 +10,15 @@ public class Docente {
 	private String localidad;
 	private String nacionalidad;
 	private String email;
-	private int telefono;
+	private String telefono;
 	private static int cont=9999;
 	
 	public Docente() {
 		
 	}
 
-	public Docente( int dni, String nombre, String apellido, String fechanacimiento, String direccion,
-			String localidad, String nacionalidad, String email, int telefono) {
+	public Docente( String dni, String nombre, String apellido, String fechanacimiento, String direccion,
+			String localidad, String nacionalidad, String email, String telefono) {
 		super();		
 		this.legajo = devuelveProximoLegajo();
 		this.dni = dni;
@@ -46,11 +46,11 @@ public class Docente {
 		this.legajo = legajo;
 	}
 
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
 
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
@@ -110,11 +110,11 @@ public class Docente {
 		this.email = email;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	

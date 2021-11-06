@@ -52,6 +52,7 @@ public class DocenteDao {
 			while (rs.next()) {
 				Docente x = new Docente();
 				x.setLegajo(rs.getInt("legajo"));
+				x.setDni(rs.getString("dni"));
 				x.setNombre(rs.getString("nombre"));
 				x.setApellido(rs.getString("apellido"));
 				x.setFechanacimiento(rs.getString("fechanacimiento"));
@@ -59,7 +60,7 @@ public class DocenteDao {
 				x.setLocalidad(rs.getString("localidad"));
 				x.setNacionalidad(rs.getString("nacionalidad"));
 				x.setEmail(rs.getString("email"));
-				x.setTelefono(rs.getInt("telefono"));			
+				x.setTelefono(rs.getString("telefono"));			
 				listaDocentes.add(x);
 			}
 		}
