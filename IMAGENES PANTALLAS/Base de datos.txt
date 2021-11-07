@@ -1,0 +1,8 @@
+create schema dbunt;
+
+use dbunt;
+
+CREATE TABLE `bdutn`.`carreras` (
+  `idCarreras` INT NOT NULL,
+  `Descripcion_carrera` VARCHAR(45) NULL,
+  PRIMARY KEY (`idCarreras`));
