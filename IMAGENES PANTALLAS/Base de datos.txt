@@ -6,3 +6,45 @@ CREATE TABLE `bdutn`.`carreras` (
   `idCarreras` INT NOT NULL,
   `Descripcion_carrera` VARCHAR(45) NULL,
   PRIMARY KEY (`idCarreras`));
+
+CREATE TABLE `bdutn`.`materiasxcarrera` (
+  `idMateriasxCarrera` INT NOT NULL,
+  `idCarrera_Mat` INT NULL,
+  `IdMateria_Mat` INT NULL,
+  PRIMARY KEY (`idMateriasxCarrera`));
+
+ALTER TABLE `bdutn`.`materiasxcarrera` 
+ADD INDEX `FK_MateriasxCarrera_idx` (`idCarrera_Mat` ASC),
+DROP INDEX `FK_MateriasxCarrera_idx` ;
+;
+CREATE TABLE `bdutn`.`materias` (
+  `idMaterias` INT NOT NULL,
+  `Descripcion_Materias` VARCHAR(45) NULL,
+  PRIMARY KEY (`idMaterias`));
+
+ALTER TABLE `bdutn`.`materiasxcarrera` 
+ADD INDEX `FK_MateriasxCarrera_Mat_idx` (`IdMateria_Mat` ASC);
+;
+ALTER TABLE `bdutn`.`materiasxcarrera` 
+ADD CONSTRAINT `FK_MateriasxCarrera_Mat`
+  FOREIGN KEY (`IdMateria_Mat`)
+  REFERENCES `bdutn`.`materias` (`idMaterias`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+CREATE TABLE `bdutn`.`alumnos` (
+  `idAlumnos` INT NOT NULL,
+  `Legajo` INT NOT NULL,
+  `Dni` INT NOT NULL,
+  `Nombre` VARCHAR(45) NOT NULL,
+  `Apellido` VARCHAR(45) NOT NULL,
+  `FechaNac` DATE NULL,
+  `Nacionalidad` VARCHAR(45) NULL,
+  `Provincia` VARCHAR(45) NULL,
+  `Email` VARCHAR(45) NOT NULL,
+  `Telefono` INT NULL,
+  PRIMARY KEY (`idAlumnos`),
+  UNIQUE INDEX `Legajo_UNIQUE` (`Legajo` ASC),
+  UNIQUE INDEX `Dni_UNIQUE` (`Dni` ASC));
+
+
