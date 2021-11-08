@@ -32,8 +32,6 @@ ADD CONSTRAINT `FK_MateriasxCarrera_Mat`
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
 
-
-
 CREATE TABLE `bdutn`.`alumnos` (
   `idAlumnos` INT NOT NULL,
   `Legajo` INT NOT NULL,
@@ -49,4 +47,24 @@ CREATE TABLE `bdutn`.`alumnos` (
   UNIQUE INDEX `Legajo_UNIQUE` (`Legajo` ASC),
   UNIQUE INDEX `Dni_UNIQUE` (`Dni` ASC));
 
+CREATE TABLE `bdutn`.`alumnosxmaterias` (
+  `idAlumnosxMaterias` INT NOT NULL,
+  `legajo_AlumnosxMaterias` INT NOT NULL,
+  `IDMateria_AlumnosxMateria` INT NOT NULL,
+  PRIMARY KEY (`idAlumnosxMaterias`));
+ALTER TABLE `bdutn`.`alumnosxmaterias` 
+ADD INDEX `FK_AlumnosxMateria_legajo_idx` (`legajo_AlumnosxMaterias` ASC),
+ADD INDEX `FK_AlumnosxMateria_Materia_idx` (`IDMateria_AlumnosxMateria` ASC);
+;
+ALTER TABLE `bdutn`.`alumnosxmaterias` 
+ADD CONSTRAINT `FK_AlumnosxMateria_legajo`
+  FOREIGN KEY (`legajo_AlumnosxMaterias`)
+  REFERENCES `bdutn`.`alumnos` (`Legajo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `FK_AlumnosxMateria_Materia`
+  FOREIGN KEY (`IDMateria_AlumnosxMateria`)
+  REFERENCES `bdutn`.`materias` (`idMaterias`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
 
