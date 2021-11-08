@@ -32,6 +32,8 @@ ADD CONSTRAINT `FK_MateriasxCarrera_Mat`
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
 
+
+
 CREATE TABLE `bdutn`.`alumnos` (
   `idAlumnos` INT NOT NULL,
   `Legajo` INT NOT NULL,
